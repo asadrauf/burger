@@ -1,5 +1,3 @@
-//require .env
-require("dotenv").config();
 
 //requiring express 
 var express = require("express");
