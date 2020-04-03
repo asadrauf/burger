@@ -1,5 +1,5 @@
 
- ![](note.png)
+ ![](mainpage.png)
  
 ### Eat-Da-Burger ![Maintained](https://img.shields.io/badge/burger-yellowgreen) ![Maintained](https://img.shields.io/badge/UNC-bootCamp-blue)
 
