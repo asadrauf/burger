@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2 class="text-center">Eat Da Burgers!</h1>
+    </div>
+    <hr>
+    <div class="row content">
+        <div class="col-6">
+            <h6 class="toEat">Burgers TO Eat!</h6>
+            <img id="bur-img" src="/assets/img/burger.png" alt="burger" width="30px" height="100px">
+            <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burger-block devoured=false}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        
+        <div class="col-6">
+            <h6 class="toDevoured">Burgers Devoured!</h6>
+            <img id="dev-img" src="/assets/img/devoured.png" alt="eaten" height="100px" >
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burger-block devoured=true}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="col-12 text-center input">
+        <form class="create-form addBurger">
+            <h4>Type your order below</h4>
+            <div class="form-group">
+                <input type="text" class="input-sm col-3 " id="newBurger" name="burger_name">
+            </div>
+            <button class="btn btn-success btn-sm ml-4" type="submit">Add Burger</button>
+        </form>
+    </div>
+</div>

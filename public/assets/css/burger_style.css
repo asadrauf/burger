@@ -1,0 +1,58 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #FBEEE6;
+}
+ul {
+  list-style: none;
+}
+li {
+  
+}
+#bur-img,
+#dev-img {
+  width: 20%;
+  margin-left: 220px;
+}
+
+#burgerName {
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+.eatBurger{
+ float: left;
+ border-radius: 20px;
+}
+
+.delete-burger{
+  border-radius: 30px;
+}
+
+.list-group-item{
+  background-color: #eee;
+  font-weight: 500;
+}
+
+.content{
+  margin-left: -50px;
+}
+
+.toEat{
+  margin-left: 220px;
+}
+
+.toDevoured{
+  margin-left: 205px;
+}
+
+.input{
+  margin-top: 10px;
+}
+
+.jumbotron{
+  margin-top: 20px;
+  height: 30px;
+  background-color: #F9E07F;
+
+
+}
