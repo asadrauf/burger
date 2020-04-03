@@ -41,6 +41,3 @@ Give a :star: or follow me if this project helped you.
 *This APP was generated with :heart: by Full Stack developer Asad Rauf*
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
-
-
-
