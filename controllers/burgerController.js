@@ -1,0 +1,67 @@
+var express = require("express");
+var router = express.Router();
+
+// Import the model (burger.js) to use its database functions.
+var burgers = require("../models/burger.js");
+
+// Create all our routes and set up logic within those routes where required.
+//Diplaying all burgers on the the webpage that are already exists in our database
+router.get("/", function(req, res) {
+  burgers.all(function(data) {
+  var hbsObject = {
+  burgers: data
+};
+  console.log(hbsObject);
+  res.render("index", hbsObject);
+});
+});
+
+//adding burger into our database based on the column names of our table
+router.post("/api/burgers", function(req, res) {
+  console.log(res.body)
+  burgers.create([
+ "burger_name", "devoured"
+  ], 
+   [
+     req.body.burger_name, req.body.devoured
+   ], 
+  function(result) {
+  console.log(result)
+// Send back the ID of the new added burger
+  res.json({ id: result.insertId });
+});
+});
+
+//Using put we gonna update and set our devoured default false to true
+router.put("/api/burgers/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+  console.log("condition", condition);
+  burgers.update(
+    {
+      devoured: req.body.devoured
+    },
+  condition,
+  function(result) {
+    if (result.changedRows === 0) {
+    // If no rows were changed, then the ID must not exist, so 404
+    return res.status(404).end();
+ }
+    res.status(200).end();
+});
+});
+
+//remove any devoured burger from the list
+router.delete("/api/burgers/:id", (req, res) => {
+  var condition = `id = ${req.params.id}`;
+  burgers.delete(condition, (result) => {
+    if (result.affectedRows == 0) {
+      return res.status(404).end();
+    } else 
+    {
+      res.status(200).end()
+    }
+  });
+});
+
+// Export routes for server.js to use.
+module.exports = router;
